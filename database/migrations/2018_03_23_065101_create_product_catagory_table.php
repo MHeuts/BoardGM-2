@@ -13,11 +13,11 @@ class CreateProductCatagoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('product_catagory', function (Blueprint $table) {
-            $table->integer('product_id');
-            $table->integer('catagory_id');
-            $table->foreign('product_id')->references('id')->on('product');
-            $table->foreign('catagory_id')->references('id')->on('catagory');
+        Schema::create('product_category', function (Blueprint $table) {
+            $table->unsignedInteger('product_id')->index();
+            $table->unsignedInteger('category_id')->index();
+			$table->foreign('product_id')->references('id')->on('product');
+			$table->foreign('category_id')->references('id')->on('category');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateProductCatagoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('product_catagory');
+        Schema::dropIfExists('product_category');
     }
 }
