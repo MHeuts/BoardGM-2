@@ -12,10 +12,11 @@
 */
 
 
-Route::group(['namespace' => 'frontend', 'as' => 'frontend.'], function(){
+Route::namespace('frontend')->group(function () {
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
 });
 
-Route::group(['namespace' => 'backend', 'prefix' => 'admin', 'as' => 'backend.'], function(){
+Route::namespace('backend')->prefix('admin')->group(function(){
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
 });
+
