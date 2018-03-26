@@ -17,7 +17,6 @@ class CreateAddressTable extends Migration
             $table->increments('id');
 			$table->string('street');
 			$table->string('number');
-			$table->string('number_suffix')->nullable();
 			$table->string('zipcode');
 			$table->string('city');
             $table->timestamps();
