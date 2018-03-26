@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\frontend;
+namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
@@ -10,6 +10,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.home.index');
+        return view('backend.home.index');
     }
 }
