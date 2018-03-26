@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 
 Route::namespace('frontend')->group(function () {
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
@@ -19,4 +21,3 @@ Route::namespace('frontend')->group(function () {
 Route::namespace('backend')->prefix('admin')->group(function(){
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
 });
-
