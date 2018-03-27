@@ -1,6 +1,6 @@
 <html>
 <head>
-
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="Head" style="background-color: #287ccf; height: 150px; padding: 0px" >
