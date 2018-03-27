@@ -15,7 +15,7 @@ class CreateOrderstateTable extends Migration
     {
         Schema::create('order_state', function (Blueprint $table) {
             $table->increments('id');
-			$table->enum('order_state', ['ordered', 'in_transit', 'delivered']);
+			$table->string('name');
             $table->timestamps();
         });
     }

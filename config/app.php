@@ -92,7 +92,12 @@ return [
     */
 
     'fallback_locale' => 'en',
-
+	
+	/*
+	Faker Locale
+	*/
+	'faker_locale' => 'nl_NL',
+	
     /*
     |--------------------------------------------------------------------------
     | Encryption Key
