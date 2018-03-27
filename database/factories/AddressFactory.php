@@ -1,8 +1,9 @@
 <?php
 
+use App\Models\Address;
 use Faker\Generator as Faker;
 
-$factory->define(App\Address::class, function (Faker $faker) {
+$factory->define(Address::class, function (Faker $faker) {
     return [
         'street' => $faker->streetName,
         'number' => $faker->buildingNumber,
