@@ -65,6 +65,9 @@ storage/*.key
 .env.*.php
 .env.php
 .env
+config/
+/config
+.env.example
 Homestead.yaml
 Homestead.json
 

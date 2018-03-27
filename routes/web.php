@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::namespace('frontend')->group(function () {
+    Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
+});
+
+Route::namespace('backend')->prefix('admin')->group(function(){
+    Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
+});
