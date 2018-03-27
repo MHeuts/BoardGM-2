@@ -15,6 +15,7 @@ class OrdersTableSeeder extends Seeder
 		DB::statement('SET FOREIGN_KEY_CHECKS=0');
 		DB::table('order')->truncate();
 		DB::statement('SET FOREIGN_KEY_CHECKS=1');
+		
         factory(Order::class, 10)->create();
     }
 }

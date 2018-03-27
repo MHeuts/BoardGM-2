@@ -17,6 +17,7 @@ class UsersTableSeeder extends Seeder
 		DB::table('address')->truncate();
 		DB::statement('SET FOREIGN_KEY_CHECKS=1');
 		
+		//Admin
 		User::create([
 			'name' => 'admin',
 			'email' => 'admin@test.com',
