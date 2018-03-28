@@ -31,15 +31,15 @@
                 <input type="text" class="form-control" placeholder="Search" name="search">
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit">
-                        <i class="glyphicon glyphicon-search"></i>
+                        <i class="fa fa-search"></i>
                     </button>
                 </div>
             </div>
         </form>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li><a href="#"><span class="fa fa-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="fa fa-sign-in"></span> Login</a></li>
         </ul>
     </div>
 
@@ -61,7 +61,7 @@
                     <input type="text" class="form-control" placeholder="Search">
                     <div class="input-group-btn">
                         <button class="btn btn-default" type="submit">
-                            <i class="glyphicon glyphicon-search"></i>
+                            <i class="fa fa-search"></i>
                         </button>
                     </div>
                 </div>
@@ -69,8 +69,8 @@
         </div>
         <div class="col-sm-3">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="#"><span class="fa fa-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="fa fa-sign-in"></span> Login</a></li>
             </ul>
         </div>
 
