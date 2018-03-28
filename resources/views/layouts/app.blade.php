@@ -38,7 +38,7 @@
                                 <input type="text" class="form-control" placeholder="Search" style="width: 500px">
                                 <div class="input-group-btn">
                                     <button class="btn btn-default" type="submit">
-                                        <i class="glyphicon glyphicon-search"></i>
+                                        <i class="fa fa-search"></i>
                                     </button>
                                 </div>
                             </div>
@@ -49,7 +49,8 @@
                     <ul class="navbar-nav ml-auto">
                         <li>
                             <button class="btn btn-primary" type="submit">
-                                Shopping Cart<span class="badge">5</span>
+								<i class="fa fa-shopping-cart fa-lg"></i>
+								<span class="badge badge-light">5</span>
                             </button>
                         </li>
                         <!-- Authentication Links -->

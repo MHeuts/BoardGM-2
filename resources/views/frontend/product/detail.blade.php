@@ -9,11 +9,11 @@
                     <img class="product_image_image" src="{{ asset('images/product/test/1.jpg') }}"/>
                 </div>
                 <div class="col-sm-6">
-                    <h2>49,99</h2>
+                    <h2>€49,99</h2>
                     <p>prduct omschrijving komt hier: \n
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    <button type="button" class="btn btn-primary">Add to Basket</button>
+                    <button type="button" class="btn btn-primary btn-lg"><i class="fa fa-cart-plus fa-2x"></i> Add to cart</button>
                 </div>
             </div>
 
@@ -27,7 +27,13 @@
                             <p>review Naam</p>
                         </div>
                         <div class="col-sm-2">
-                            STARS
+                            <h3>
+								<i class="fa fa-star text-warning"></i>
+								<i class="fa fa-star text-warning"></i>
+								<i class="fa fa-star text-warning"></i>
+								<i class="fa fa-star-half-o text-warning"></i>
+								<i class="fa fa-star-o text-warning"></i>
+							</h3>
                         </div>
                     </div>
 
