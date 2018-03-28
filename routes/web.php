@@ -13,6 +13,7 @@
 
 Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('frontend')->group(function () {
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
