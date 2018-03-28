@@ -6,7 +6,7 @@
             <h1>{{$product->name}}</h1>
             <div class="row">
                 <div class="col-sm-6">
-                    <img class="product_image_image" src="{{ asset('images/product/test/1.jpg') }}"/>
+                    <img class="product_image_image" src="{{ asset("images/product/{$product->id}/1.jpg") }}"/>
                 </div>
                 <div class="col-sm-6">
                     <h2>€{{$product->price}}</h2>
