@@ -18,6 +18,7 @@ class CreateProductTable extends Migration
             $table->string('name');
             $table->longText('description');
             $table->double('price', 8, 2);
+			$table->unsignedInteger('in_stock');
             $table->timestamps();
         });
     }
