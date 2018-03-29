@@ -43,7 +43,7 @@ class ProductController extends Controller
         $product = new product($request->all());
 
         $product->save();
-        return redirect(route('backend.workshops.index'));
+        return redirect(route('products.index'));
     }
 
     public function show($id){
