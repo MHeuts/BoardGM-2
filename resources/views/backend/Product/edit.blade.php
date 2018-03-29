@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <h1>edit {{$product->name}}</h1>
-
+    <h1>Edit: </h1>
+    <h2>{{$product->name}}</h2>
     <form method="POST" action="{{ route('products.update', $product->id) }}">
         {{ csrf_field() }}
         {{ method_field('PUT') }}
