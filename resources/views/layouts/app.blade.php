@@ -48,14 +48,14 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li>
-                            <button class="btn btn-primary" type="submit">
+                            <a href="{{ route('cart') }}" class="btn btn-primary">
 								<i class="fa fa-shopping-cart fa-lg"></i>
 								@if(Session::has('cart'))
 								<span class="badge badge-light">
 								{{ count(Session::get('cart')) }}
 								@endif
 								</span>
-                            </button>
+                            </a>
                         </li>
                         <!-- Authentication Links -->
                         @guest

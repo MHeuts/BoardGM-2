@@ -20,8 +20,11 @@ Route::namespace('frontend')->group(function () {
     Route::get('/producttest', ['as' => 'product.index', 'uses' => 'ProductTestController@index']);
 	Route::get('/products', 'ProductsController@index')->name('catalog');
     Route::get('/products/{id}', 'ProductsController@displayProduct')->name('displayProduct');
-	Route::get('/cart', 'CartController@index')->middleware('auth')->name('cart');
-	Route::get('/addToCart/{id}', 'CartController@addToCart')->middleware('auth')->name('cart');
+});
+
+Route::namespace('cart')->middleware('auth')->group(function () {
+	Route::get('/cart', 'CartController@index')->name('cart');
+	Route::get('/addToCart/{id}', 'CartController@addToCart')->name('addToCart');
 });
 
 Route::namespace('backend')->prefix('cms')->middleware('auth')->group(function(){

@@ -21,11 +21,15 @@
 					<td>{{ $item['name'] }}</td>
 					<td>{{ $item['description'] }}</td>
 					<td>€{{ $item['price'] }}</td>
-					<td>1(test)</td>
+					<td>{{ $item['qty'] }}</td>
 				</tr>
 				@endforeach
 			</tbody>
 		</table>
 		@endif
+		
+		<a href="{{ URL::previous() }}" class="btn btn-primary"><i class="fa fa-arrow-left fa-lg"></i> Back to shopping</a>
+		
+		
 	</div>
 @endsection
