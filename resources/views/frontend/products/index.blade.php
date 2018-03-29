@@ -12,14 +12,15 @@
 					{{-- <img class="card-img-top" src="http://via.placeholder.com/800x800" alt="Card image"> --}}
 					<div class="card-body">
 						<p class="card-text text-truncate">{{ $product->description }}</p>
-						<a href="{{ route('displayProduct', $product->id) }}" class="btn btn-primary">View product</a>
+						
 					</div>
 					<div class="card-footer text-muted">
-						<i class="fa fa-star text-warning"></i>
-						<i class="fa fa-star text-warning"></i>
-						<i class="fa fa-star text-warning"></i>
-						<i class="fa fa-star-half-o text-warning"></i>
-						<i class="fa fa-star-o text-warning"></i>
+						<i class="fa fa-star text-warning align-bottom"></i>
+						<i class="fa fa-star text-warning align-bottom"></i>
+						<i class="fa fa-star text-warning align-bottom"></i>
+						<i class="fa fa-star-half-o text-warning align-bottom"></i>
+						<i class="fa fa-star-o text-warning align-bottom"></i>
+						<a href="{{ route('displayProduct', $product->id) }}" class="btn btn-primary float-right">View product</a>
 					</div>
 				</div>
 			</div>
