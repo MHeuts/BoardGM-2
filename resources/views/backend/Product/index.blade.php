@@ -1,4 +1,4 @@
-@extends('backend.Layout.main')
+@extends('layouts.app')
 @section('content')
     <h1>Het overzicht van producten</h1>
 
