@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+	<a href="{{ route('catalog') }}" class="btn btn-primary"><i class="fa fa-arrow-left fa-lg"></i> Back to catalog</a>
         <div class="product_page">
             <h1>{{$product->name}}</h1>
             <div class="row">

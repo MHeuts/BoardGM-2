@@ -16,23 +16,23 @@ class CategoriesTableSeeder extends Seeder
 		DB::table('category')->truncate();
 		DB::statement('SET FOREIGN_KEY_CHECKS=1');
 		
-		Category::create(['name' => 'activity_categories']);
-		Category::create(['parent_id' => 1, 'name' => 'city_building']);
-		Category::create(['parent_id' => 1, 'name' => 'civilization']);
-		Category::create(['parent_id' => 1, 'name' => 'educational']);
-		Category::create(['parent_id' => 1, 'name' => 'puzzle']);
-		Category::create(['parent_id' => 1, 'name' => 'racing']);
-		Category::create(['parent_id' => 1, 'name' => 'territory_building']);
-		Category::create(['parent_id' => 1, 'name' => 'transportation']);
-		Category::create(['name' => 'component_categories']);
-		Category::create(['parent_id' => 9, 'name' => 'card_game']);
-		Category::create(['parent_id' => 9, 'name' => 'collectible_components']);
-		Category::create(['parent_id' => 9, 'name' => 'dice']);
-		Category::create(['parent_id' => 9, 'name' => 'electronic']);
-		Category::create(['parent_id' => 9, 'name' => 'miniatures']);
-		Category::create(['name' => 'non_game_categories']);
-		Category::create(['parent_id' => 15, 'name' => 'book']);
-		Category::create(['parent_id' => 15, 'name' => 'expansion_for_base_game']);
-		Category::create(['parent_id' => 15, 'name' => 'game_system']);
+		Category::create(['name' => 'Activity Categories']);
+		Category::create(['parent_id' => 1, 'name' => 'City Building']);
+		Category::create(['parent_id' => 1, 'name' => 'Civilization']);
+		Category::create(['parent_id' => 1, 'name' => 'Educational']);
+		Category::create(['parent_id' => 1, 'name' => 'Puzzle']);
+		Category::create(['parent_id' => 1, 'name' => 'Racing']);
+		Category::create(['parent_id' => 1, 'name' => 'Territory Building']);
+		Category::create(['parent_id' => 1, 'name' => 'Transportation']);
+		Category::create(['name' => 'Component Categories']);
+		Category::create(['parent_id' => 9, 'name' => 'Card Game']);
+		Category::create(['parent_id' => 9, 'name' => 'Collectible Components']);
+		Category::create(['parent_id' => 9, 'name' => 'Dice']);
+		Category::create(['parent_id' => 9, 'name' => 'Electronic']);
+		Category::create(['parent_id' => 9, 'name' => 'Miniatures']);
+		Category::create(['name' => 'Non-Game Categories']);
+		Category::create(['parent_id' => 15, 'name' => 'Book']);
+		Category::create(['parent_id' => 15, 'name' => 'Expansion for Base-game']);
+		Category::create(['parent_id' => 15, 'name' => 'Game System']);
     }
 }
