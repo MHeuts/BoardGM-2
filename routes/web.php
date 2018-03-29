@@ -18,7 +18,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::namespace('frontend')->group(function () {
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
     Route::get('/producttest', ['as' => 'product.index', 'uses' => 'ProductTestController@index']);
-    Route::get('/product/{id}', 'ProductController@displayProduct')->name('displayProduct');
+	Route::get('/products', ['as' => 'products.index', 'uses' => 'ProductsController@index', 'name' => 'catalog']);
+	Route::get('/products', 'ProductsController@index')->name('catalog');
+    Route::get('/products/{id}', 'ProductsController@displayProduct')->name('displayProduct');
 
 });
 
