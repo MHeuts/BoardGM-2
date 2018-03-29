@@ -20,7 +20,7 @@ class ProductController extends Controller
     }
 
     public function displayProduct($id){
-        $product = Product::find($id);
+        $product = Product::findOrFail($id);
         return view('frontend.product.detail', compact('product'));
     }
 }

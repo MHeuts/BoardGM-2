@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Models\Product;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 
@@ -25,61 +26,60 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        //
+        return view('backend.product.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @return Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function store()
+    public function store(Request $request)
     {
-        //
-    }
+        $product = new Workshop($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
+        $product->save();
+        return redirect(route('backend.workshops.index'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        return view('backend.product.edit', compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
-     * @return Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        //
+
+        return redirect(route('products.index'));
+        $product = Product::findOrFail($id);
+        $product->update($request->all());
+        return redirect(route('products.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function destroy($id)
     {
