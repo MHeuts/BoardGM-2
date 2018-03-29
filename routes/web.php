@@ -18,15 +18,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::namespace('frontend')->group(function () {
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
     Route::get('/producttest', ['as' => 'product.index', 'uses' => 'ProductTestController@index']);
-	Route::get('/products', ['as' => 'products.index', 'uses' => 'ProductsController@index', 'name' => 'catalog']);
 	Route::get('/products', 'ProductsController@index')->name('catalog');
     Route::get('/products/{id}', 'ProductsController@displayProduct')->name('displayProduct');
-
+	Route::get('/cart', 'CartController@index')->middleware('auth')->name('cart');
+	Route::get('/addToCart/{id}', 'CartController@addToCart')->middleware('auth')->name('cart');
 });
 
-Route::namespace('backend')->prefix('admin')->group(function(){
+Route::namespace('backend')->prefix('cms')->middleware('auth')->group(function(){
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
-    Route::resource('/product', 'ProductController');
+    //Route::resource('/product', 'ProductController');
 });
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -50,7 +50,11 @@
                         <li>
                             <button class="btn btn-primary" type="submit">
 								<i class="fa fa-shopping-cart fa-lg"></i>
-								<span class="badge badge-light">5</span>
+								@if(Session::has('cart'))
+								<span class="badge badge-light">
+								{{ count(Session::get('cart')) }}
+								@endif
+								</span>
                             </button>
                         </li>
                         <!-- Authentication Links -->
