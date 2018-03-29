@@ -13,7 +13,6 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Price</th>
-                <th>Category</th>
                 <th>Stock</th>
                 <th>Actions</th>
             </tr>
@@ -24,7 +23,6 @@
                     <td>{{$product->id}}</td>
                     <td>{{$product->name}}</td>
                     <td>€ {{$product->price}}</td>
-                    <td>{{$product->category}}</td>
                     <td>{{$product->in_stock}}</td>
                     <td class="table-actions">
                         <a class="btn btn-sm btn-primary" href="{{route('products.edit', $product->id)}}">

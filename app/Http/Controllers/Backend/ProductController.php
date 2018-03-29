@@ -73,6 +73,13 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
+        //dd($product->category()->get());
+        //dd($request->all(['category']));
+        $product->category()->detach();
+        foreach ($request->all(['category']) as $categoryid){
+            $category = Category::findOrFail($categoryid);
+            $product->category()->attach($category);
+        }
         $product->update($request->all());
         return redirect(route('products.index'));
     }

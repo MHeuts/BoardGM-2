@@ -18,18 +18,21 @@
             <label for="description">Description:</label>
             <textarea class="form-control" id="description" name="description" required>{{ $product->description }}</textarea>
         </div>
-        @foreach($product->category as $item)
-            <div class="form-group">
-                <label for="Catagory">Catagory:</label>
+        <div class="form-group">
+            <label for="category">Catagory:</label>
 
-                <select class="form-control" id="Catagory" >
+                <select class="js-example-basic-multiple" name="category[]" multiple="multiple">
                     @foreach($categories as $catagory)
                         <option value="{{$catagory->id}}"> {{$catagory->name}}</option>
                     @endforeach
                 </select>
+            <script>
+            $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+            });
+            </script>
 
-            </div>
-        @endforeach
+        </div>
         <button type="submit" class="btn btn-primary">save</button>
     </form>
 </div>
