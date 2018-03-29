@@ -10,6 +10,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th>id</th>
                 <th>Naam</th>
                 <th>categorie</th>
                 <th>Stock</th>
@@ -19,6 +20,7 @@
             <tbody>
             @foreach($products as $product)
                 <tr>
+                    <td>{{$product->id}}</td>
                     <td>{{$product->name}}</td>
                     <td>{{$product->category}}</td>
                     <td>{{$product->in_stock}}</td>

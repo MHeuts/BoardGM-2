@@ -46,8 +46,8 @@ class ProductController extends Controller
         return redirect(route('products.index'));
     }
 
-    public function show($id){
-        dd('show');
+    public function show(Request $request){
+        dd($request);
     }
     /**
      * Show the form for editing the specified resource.
@@ -73,7 +73,6 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $product->update($request->all());
-
         return redirect(route('products.index'));
     }
 
