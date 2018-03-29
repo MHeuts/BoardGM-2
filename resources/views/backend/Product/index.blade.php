@@ -1,15 +1,19 @@
 @extends('layouts.app')
 @section('content')
-    <h1>Het overzicht van producten</h1>
 
+<div class="container">
+    <h1>Het overzicht van producten</h1>
+    <a class="btn btn-primary pull-right" href="{{ route('products.create') }}">
+        Add new Product
+    </a>
     <div class="table-responsive">
-        <table class="table-striped">
+        <table class="table table-striped">
             <thead>
             <tr>
                 <th>Naam</th>
                 <th>categorie</th>
                 <th>Stock</th>
-                <th>acties</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -30,7 +34,6 @@
         </table>
 
     </div>
-    <a class="btn btn-primary pull-right" href="{{ route('products.create') }}">
-        product toevoegen
-    </a>
+
+</div>
 @endsection

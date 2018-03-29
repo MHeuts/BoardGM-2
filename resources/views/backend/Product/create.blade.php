@@ -1,15 +1,25 @@
 @extends('layouts.app')
 @section('content')
+<div class="container">
 
-    <form method="post" action="{{ route('products.create') }}">
+    <form method="POST" action="{{ route('products.store') }}">
+        {{ csrf_field() }}
         <div class="form-group">
-            <label for="email">Name:</label>
-            <input type="text" class="form-control" id="name" value="{{ old('name') }}">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
         </div>
         <div class="form-group">
-            <label for="pwd">Price:</label>
-            <input type="text" class="form-control" id="price" value="{{ old('price') }}">
+            <label for="price">Price:</label>
+            <input type="text" class="form-control" id="price" name="price" required>
         </div>
-        <button type="submit" class="btn btn-default">save</button>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" name="description" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">save</button>
     </form>
+
+</div>
 @endsection

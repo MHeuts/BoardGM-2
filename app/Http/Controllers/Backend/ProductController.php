@@ -40,12 +40,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Workshop($request->all());
+        $product = new product($request->all());
 
         $product->save();
         return redirect(route('backend.workshops.index'));
     }
 
+    public function show($id){
+        dd('show');
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -68,10 +71,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        return redirect(route('products.index'));
         $product = Product::findOrFail($id);
         $product->update($request->all());
+
         return redirect(route('products.index'));
     }
 
