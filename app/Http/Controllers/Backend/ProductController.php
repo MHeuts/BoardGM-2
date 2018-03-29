@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -58,8 +59,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-
-        return view('backend.product.edit', compact('product'));
+        $categories = Category::all(['id', 'name']);
+        return view('backend.product.edit', compact('product','categories'));
     }
 
     /**

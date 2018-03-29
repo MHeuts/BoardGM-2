@@ -18,6 +18,18 @@
             <label for="description">Description:</label>
             <textarea class="form-control" id="description" name="description" required>{{ $product->description }}</textarea>
         </div>
+        @foreach($product->category as $item)
+            <div class="form-group">
+                <label for="Catagory">Catagory:</label>
+
+                <select class="form-control" id="Catagory" >
+                    @foreach($categories as $catagory)
+                        <option value="{{$catagory->id}}"> {{$catagory->name}}</option>
+                    @endforeach
+                </select>
+
+            </div>
+        @endforeach
         <button type="submit" class="btn btn-primary">save</button>
     </form>
 </div>

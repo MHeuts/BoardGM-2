@@ -30,6 +30,9 @@
                         <a class="btn btn-sm btn-primary" href="{{route('products.edit', $product->id)}}">
                             Edit
                         </a>
+
+                    </td>
+                    <td>
                         <form class="table-action" method="post" action="{{ route('products.destroy', $product->id) }}">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
