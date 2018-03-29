@@ -21,16 +21,12 @@
         <div class="form-group">
             <label for="category">Catagory:</label>
 
-                <select class="js-example-basic-multiple" name="category[]" multiple="multiple">
+                <select class="selectpicker"  name="category[]" multiple>
                     @foreach($categories as $catagory)
-                        <option value="{{$catagory->id}}"> {{$catagory->name}}</option>
+                        <option value="{{$catagory->id}}" @foreach($product->category as $pcatagory) @if($pcatagory->id == $catagory->id) selected="selected" @break
+                                @endif @endforeach> {{$catagory->name}}</option>
                     @endforeach
                 </select>
-            <script>
-            $(document).ready(function() {
-            $('.js-example-basic-multiple').select2();
-            });
-            </script>
 
         </div>
         <button type="submit" class="btn btn-primary">save</button>
