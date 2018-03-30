@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+    <a href="{{ route('products.index') }}" class="btn btn-primary"><i class="fa fa-arrow-left fa-lg"></i> Back to index</a>
     <h1>Edit: </h1>
     <h2>{{$product->name}}</h2>
     <form method="POST" action="{{ route('products.update', $product->id) }}">

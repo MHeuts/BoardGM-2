@@ -28,6 +28,7 @@ Route::namespace('backend')->prefix('admin')->group(function(){
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
     Route::resource('products', 'ProductController');
     Route::post('products/{id}/PhotoUpload', 'ProductController@uploadPhoto')->name('products.photo');
+    Route::resource('categories', 'CategoryController');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
