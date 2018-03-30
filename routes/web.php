@@ -26,7 +26,8 @@ Route::namespace('frontend')->group(function () {
 
 Route::namespace('backend')->prefix('admin')->group(function(){
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
-    Route::resource('/product', 'ProductController');
+    Route::resource('products', 'ProductController');
+    Route::post('products/{id}/PhotoUpload', 'ProductController@uploadPhoto')->name('products.photo');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

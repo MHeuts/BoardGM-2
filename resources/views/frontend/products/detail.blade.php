@@ -10,7 +10,7 @@
                     <img class="product_image_image" src="{{ asset("images/product/{$product->id}/1.jpg") }}"/>
                 </div>
                 <div class="col-sm-6">
-                    <h2>€{{$product->price}}</h2>
+                    <h2>€ {{$product->price}}</h2>
                     <p>{{$product->description}}</p>
                     <button type="button" class="btn btn-primary btn-lg"><i class="fa fa-cart-plus fa-2x"></i> Add to cart</button>
                 </div>
