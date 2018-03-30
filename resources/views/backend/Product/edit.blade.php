@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <a href="{{ route('products.index') }}" class="btn btn-primary"><i class="fa fa-arrow-left fa-lg"></i> Back to index</a>
+    <a href="{{ route('products.index') }}" class="btn btn-primary mb-4"><i class="fa fa-arrow-left fa-lg"></i> Back to index</a>
     <h1>Edit: </h1>
     <h2>{{$product->name}}</h2>
-    <form method="POST" action="{{ route('products.update', $product->id) }}">
+    <form method="POST" action="{{ route('products.update', $product->id) }}" id="productForm">
         {{ csrf_field() }}
         {{ method_field('PUT') }}
         <div class="form-group">
@@ -20,19 +20,19 @@
             <textarea class="form-control" id="description" name="description" required>{{ $product->description }}</textarea>
         </div>
         <div class="form-group">
-            <label for="category">Catagory:</label>
+            <label for="category">Category:</label>
 
                 <select class="selectpicker"  name="category[]" multiple>
-                    @foreach($categories as $catagory)
-                        <option value="{{$catagory->id}}" @foreach($product->category as $pcatagory) @if($pcatagory->id == $catagory->id) selected="selected" @break
-                                @endif @endforeach> {{$catagory->name}}</option>
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}" @foreach($product->category as $pcategory) @if($pcategory->id == $category->id) selected="selected" @break
+                                @endif @endforeach> {{$category->name}}</option>
                     @endforeach
                 </select>
 
         </div>
-        <button type="submit" class="btn btn-primary">save</button>
     </form>
-    <form enctype="multipart/form-data" action="{{ route('products.photo', $product->id) }}" method="post">
+	<hr>
+    <form class="mb-4" enctype="multipart/form-data" action="{{ route('products.photo', $product->id) }}" method="post">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="photo">Upload photos:</label>
@@ -40,5 +40,7 @@
         </div>
         <input type="submit" value="Upload" />
     </form>
+	<hr>
+	<button type="submit" class="btn btn-primary" form="productForm">Save</button>
 </div>
 @endsection

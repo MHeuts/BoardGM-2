@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <a href="{{ route('categories.index') }}" class="btn btn-primary"><i class="fa fa-arrow-left fa-lg"></i> Back to index</a>
+        <a href="{{ route('categories.index') }}" class="btn btn-primary mb-4"><i class="fa fa-arrow-left fa-lg"></i> Back to index</a>
         <h1>Edit: </h1>
-        <h2>{{$category->name}}</h2>
         <form method="POST" action="{{ route('categories.update', $category->id) }}">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
@@ -12,7 +11,7 @@
                 <input type="text" class="form-control" id="name" value="{{$category->name}}" required>
             </div>
             <div class="form-group">
-                <label for="parrent">Parrent Category:</label>
+                <label for="parent">Parent Category:</label>
 
                 <select class="selectpicker"  name="parent">
                     <option value="0"></option>
@@ -22,7 +21,7 @@
                 </select>
 
             </div>
-            <button type="submit" class="btn btn-primary">save</button>
+            <button type="submit" class="btn btn-primary">Save</button>
         </form>
     </div>
 @endsection
