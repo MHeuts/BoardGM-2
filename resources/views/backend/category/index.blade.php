@@ -4,14 +4,14 @@
     <div class="container">
         <h1>Categories</h1>
         <a class="btn btn-primary pull-right" href="{{ route('categories.create') }}">
-            Add new Category
+            Add new category
         </a>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Parrent ID</th>
+                    <th>Parent ID</th>
                     <th>Name</th>
                     <th>Actions</th>
                 </tr>

@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <h2>€ {{$product->price}}</h2>
                     <p>{{$product->description}}</p>
-                    <button type="button" class="btn btn-primary btn-lg"><i class="fa fa-cart-plus fa-2x"></i> Add to cart</button>
+					<a href="{{ route('addToCart', $product->id) }}" class="btn btn-primary"><i class="fa fa-cart-plus fa-2x"></i> Add to cart</a>
                 </div>
             </div>
 

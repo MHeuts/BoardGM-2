@@ -52,10 +52,14 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li>
-                            <button class="btn btn-primary" type="submit">
+                            <a href="{{ route('cart') }}" class="btn btn-primary">
 								<i class="fa fa-shopping-cart fa-lg"></i>
-								<span class="badge badge-light">5</span>
-                            </button>
+								@if(Session::has('cart'))
+								<span class="badge badge-light">
+								{{ Session::get('cart.totalQty') }}
+								@endif
+								</span>
+                            </a>
                         </li>
                         <!-- Authentication Links -->
                         @guest

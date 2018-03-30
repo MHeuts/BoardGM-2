@@ -4,7 +4,7 @@
 <div class="container">
     <h1>Products</h1>
     <a class="btn btn-primary pull-right" href="{{ route('products.create') }}">
-        Add new Product
+        Add new product
     </a>
     <div class="table-responsive">
         <table class="table table-striped">
