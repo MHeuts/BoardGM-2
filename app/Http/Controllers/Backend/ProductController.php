@@ -11,7 +11,9 @@ namespace App\Http\Controllers\backend;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 
 class ProductController extends Controller
@@ -31,7 +33,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('backend.product.create');
+        $categories = Category::all(['id', 'name']);
+        return view('backend.product.create', compact('categories'));
     }
 
     /**
@@ -42,14 +45,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new product($request->all());
-
         $product->save();
+
+        foreach ($request->all(['category']) as $categoryid){
+            $category = Category::findOrFail($categoryid);
+            $product->category()->attach($category);
+        }
+
         return redirect(route('products.index'));
     }
 
     public function show(Request $request){
         dd($request);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -58,6 +67,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        $path = public_path().'/images/product/' . $id;
+        if(!file::exists($path)) {
+            File::makeDirectory($path);
+        }
+
         $product = Product::findOrFail($id);
         $categories = Category::all(['id', 'name']);
         return view('backend.product.edit', compact('product','categories'));
@@ -73,9 +87,8 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
-        //dd($product->category()->get());
-        //dd($request->all(['category']));
         $product->category()->detach();
+
         foreach ($request->all(['category']) as $categoryid){
             $category = Category::findOrFail($categoryid);
             $product->category()->attach($category);
@@ -94,6 +107,16 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $product->delete();
+        return redirect(route('products.index'));
+    }
+
+    public function uploadPhoto(Request $request, $id)
+    {
+        $path = 'product/' . $id;
+        $file = $request->photo;
+        if ($file != null) {
+            $path = Storage::disk('public_uploads')->putFileAs($path, $file, '1.jpg');
+        }
         return redirect(route('products.index'));
     }
 }

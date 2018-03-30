@@ -17,7 +17,16 @@
             <label for="description">Description:</label>
             <textarea class="form-control" id="description" name="description" required></textarea>
         </div>
+        <div class="form-group">
+            <label for="category">Catagory:</label>
 
+            <select class="selectpicker"  name="category[]" multiple>
+                @foreach($categories as $catagory)
+                    <option value="{{$catagory->id}}"> {{$catagory->name}}</option>
+                @endforeach
+            </select>
+
+        </div>
         <button type="submit" class="btn btn-primary">save</button>
     </form>
 

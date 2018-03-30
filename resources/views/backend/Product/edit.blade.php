@@ -31,5 +31,13 @@
         </div>
         <button type="submit" class="btn btn-primary">save</button>
     </form>
+    <form enctype="multipart/form-data" action="{{ route('products.photo', $product->id) }}" method="post">
+        {{ csrf_field() }}
+        <div class="form-group">
+            <label for="photo">Upload photos:</label>
+            <input type="file" id="photo" name="photo" />
+        </div>
+        <input type="submit" value="Upload" />
+    </form>
 </div>
 @endsection
