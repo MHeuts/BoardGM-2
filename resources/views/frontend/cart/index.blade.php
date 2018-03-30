@@ -15,7 +15,7 @@
 			</tr>
 			</thead>
 			<tbody>
-				@foreach(Session::get('cart') as $item)
+				@foreach($items as $item)
 				<tr>
 					<th scope="row">{{ $item['id'] }}</th>
 					<td>{{ $item['name'] }}</td>

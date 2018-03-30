@@ -22,14 +22,13 @@ class CartController extends Controller
 		$product = [];
 		
 		if(session()->has('cart')){
-			foreach(Session::get('cart') as $item) {
+			foreach(Session::get('cart') as $index=>&$item) {
 				if ($id == $item['id']) {
-					$item['qty'] = $item['qty'] + 1;
-					$request->session()->push('cart', array_merge((array)Session::get('cart',[]), $item));
+					++$item['qty'];
+					Session::put('cart.'.$index, $item);
 					break;
 				}
 			}
-			
 		}
 		else {
 				$product_from_db = Product::findOrFail($id);
@@ -39,7 +38,7 @@ class CartController extends Controller
 				$product['price'] = $product_from_db->price;
 				$product['qty'] = 1;
 				
-				$request->session()->push('cart', array_merge((array)Session::get('cart',[]), $product));
+				Session::push('cart', $product);
 		}
 		
 		return redirect('/cart');
