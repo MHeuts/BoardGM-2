@@ -1,19 +1,4 @@
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/dictionaries
-
-# Sensitive or high-churn files:
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.xml
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-
-# Gradle:
-.idea/**/gradle.xml
-.idea/**/libraries
+.idea
 
 # CMake
 cmake-build-debug/
@@ -29,14 +14,8 @@ cmake-build-debug/
 # IntelliJ
 /out/
 
-# mpeltonen/sbt-idea plugin
-.idea_modules/
-
 # JIRA plugin
 atlassian-ide-plugin.xml
-
-# Cursive Clojure plugin
-.idea/replstate.xml
 
 # Ruby plugin and RubyMine
 /.rakeTasks
@@ -47,12 +26,12 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-.idea/sonarlint
-
 ### Laravel ###
 /vendor
 node_modules/
 npm-debug.log
+package-lock.json
+composer.lock
 
 # Laravel 4 specific
 bootstrap/compiled.php
