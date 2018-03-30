@@ -25,9 +25,14 @@ Route::namespace('frontend')->group(function () {
 Route::namespace('cart')->middleware('auth')->group(function () {
 	Route::get('/cart', 'CartController@index')->name('cart');
 	Route::get('/addToCart/{id}', 'CartController@addToCart')->name('addToCart');
-	Route::get('/checkout', 'CartController@checkout')->name('checkout');
 	Route::post('/updateQty/{id}', 'CartController@updateQty')->name('updateQty');
 	Route::get('/removeFromCart/{id}', 'CartController@removeFromCart')->name('removeFromCart');
+});
+
+Route::namespace('order')->middleware('auth')->group(function () {
+	Route::get('/checkout', 'OrderController@index')->name('checkout');
+	Route::get('/payment', 'OrderController@payment')->name('payment');
+	Route::get('/payed', 'OrderController@payed')->name('payed');
 });
 
 Route::namespace('backend')->prefix('cms')->middleware('auth')->group(function(){

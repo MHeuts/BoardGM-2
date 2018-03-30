@@ -15,18 +15,13 @@ class CartController extends Controller
         return view('frontend.cart.index');
     }
 	
-	public function checkout() {
-		Session::forget('cart');
-		return redirect('/products');
-	}
-	
 	public function removeFromCart($id) {
 		foreach(Session::get('cart.items') as $index=>$item) {
 			if ($id == $item['id']) {
 				Session::forget('cart.items.'.$index);
 				$this->calcTotalQtyTotalPrice();
 				
-				return redirect('/cart');
+				return redirect()->route('cart');
 			}
 		}
 	}
@@ -46,7 +41,7 @@ class CartController extends Controller
 				Session::put('cart.items.'.$index, $product);
 				$this->calcTotalQtyTotalPrice();
 				
-				return redirect('/cart');
+				return redirect()->route('cart');
 			}
 		}
 	}
@@ -68,6 +63,7 @@ class CartController extends Controller
 	{
 		$product = [];
 		
+		// Product already in cart
 		if(Session::has('cart.items')){
 			foreach(Session::get('cart.items') as $index=>&$item) {
 				$product = $item;
@@ -77,11 +73,12 @@ class CartController extends Controller
 					
 					$this->calcTotalQtyTotalPrice();
 					
-					return redirect('/cart');
+					return redirect()->route('cart');
 				}
 			}
 		}
 		
+		// Product NOT already in cart
 		$product_from_db = Product::findOrFail($id);
 		$product['id'] = $id;
 		$product['name'] = $product_from_db->name;
@@ -93,6 +90,6 @@ class CartController extends Controller
 		
 		$this->calcTotalQtyTotalPrice();
 		
-		return redirect('/cart');
+		return redirect()->route('cart');
 	}
 }

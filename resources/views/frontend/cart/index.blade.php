@@ -21,7 +21,7 @@
 					<th scope="row">{{ $item['id'] }}</th>
 					<td>{{ $item['name'] }}</td>
 					<td>{{ $item['description'] }}</td>
-					<td>€{{ $item['price'] * $item['qty'] }}</td>
+					<td>€{{ number_format($item['price'] * $item['qty'], 2) }}</td>
 					<td>
 						<form id="qtyForm" method="POST" action="{{ route('updateQty', $item['id']) }}">
 							{{ csrf_field() }}
@@ -51,7 +51,7 @@
 		<a href="{{ route('catalog')}}" class="btn btn-primary"><i class="fa fa-arrow-left fa-lg"></i> Back to shop</a>
 		
 		@if(Session::has('cart'))
-		<a href="{{ route('checkout')}}" class="btn btn-primary btn-lg float-right"><i class="fa fa-money fa-2x"></i> Checkout</a>
+		<a href="{{ route('checkout')}}" class="btn btn-primary btn-lg float-right"><i class="fa fa-cart-arrow-down fa-lg"></i> Checkout</a>
 		@endif
 		
 	</div>
