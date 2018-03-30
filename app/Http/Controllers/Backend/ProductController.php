@@ -44,7 +44,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new product($request->all());
+        $product = new Product($request->all());
         $product->save();
 
         foreach ($request->all(['category']) as $categoryid){
