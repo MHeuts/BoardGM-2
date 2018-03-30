@@ -52,7 +52,7 @@
 								<i class="fa fa-shopping-cart fa-lg"></i>
 								@if(Session::has('cart'))
 								<span class="badge badge-light">
-								{{ count(Session::get('cart')) }}
+								{{ Session::get('cart.totalQty') }}
 								@endif
 								</span>
                             </a>

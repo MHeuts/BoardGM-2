@@ -25,6 +25,9 @@ Route::namespace('frontend')->group(function () {
 Route::namespace('cart')->middleware('auth')->group(function () {
 	Route::get('/cart', 'CartController@index')->name('cart');
 	Route::get('/addToCart/{id}', 'CartController@addToCart')->name('addToCart');
+	Route::get('/checkout', 'CartController@checkout')->name('checkout');
+	Route::get('/updateQty/{qty}', 'CartController@updateQty')->name('updateQty');
+	Route::get('/removeFromCart/{id}', 'CartController@removeFromCart')->name('removeFromCart');
 });
 
 Route::namespace('backend')->prefix('cms')->middleware('auth')->group(function(){
