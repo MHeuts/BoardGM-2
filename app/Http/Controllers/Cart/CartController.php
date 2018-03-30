@@ -57,6 +57,10 @@ class CartController extends Controller
 		
 		Session::put('cart.totalQty', $newTotalQty);
 		Session::put('cart.totalPrice', $newTotalPrice);
+		
+		if($newTotalQty == 0){
+			Session::forget('cart');
+		}
 	}
 	
 	public function addToCart($id)
