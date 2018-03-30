@@ -46,6 +46,8 @@
 				</tr>
 			</tfoot>
 		</table>
+		@else
+			<h4 class="display-4 text-center">Your cart is empty.</h4>
 		@endif
 		
 		<a href="{{ route('catalog')}}" class="btn btn-primary"><i class="fa fa-arrow-left fa-lg"></i> Back to shop</a>
