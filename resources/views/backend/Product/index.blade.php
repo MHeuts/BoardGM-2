@@ -1,27 +1,41 @@
-@extends('backend.Layout.main')
+@extends('layouts.app')
 @section('content')
-    <h1>Het overzicht van producten</h1>
 
+<div class="container">
+    <h1>Products</h1>
+    <a class="btn btn-primary pull-right" href="{{ route('products.create') }}">
+        Add new Product
+    </a>
     <div class="table-responsive">
-        <table class="table-striped">
+        <table class="table table-striped">
             <thead>
             <tr>
-                <th>Naam</th>
-                <th>categorie</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
                 <th>Stock</th>
-                <th>acties</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
             @foreach($products as $product)
                 <tr>
+                    <td>{{$product->id}}</td>
                     <td>{{$product->name}}</td>
-                    <td>{{$product->category}}</td>
+                    <td>€ {{$product->price}}</td>
                     <td>{{$product->in_stock}}</td>
                     <td class="table-actions">
                         <a class="btn btn-sm btn-primary" href="{{route('products.edit', $product->id)}}">
                             Edit
                         </a>
+
+                    </td>
+                    <td>
+                        <form class="table-action" method="post" action="{{ route('products.destroy', $product->id) }}">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <input role="button" class="btn btn-sm btn-danger table-action" type="submit" value="Delete">
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -30,7 +44,6 @@
         </table>
 
     </div>
-    <a class="btn btn-primary pull-right" href="{{ route('products.create') }}">
-        product toevoegen
-    </a>
+
+</div>
 @endsection

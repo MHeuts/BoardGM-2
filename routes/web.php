@@ -35,7 +35,9 @@ Route::namespace('order')->middleware('auth')->group(function () {
 	Route::get('/payed', 'OrderController@payed')->name('payed');
 });
 
-Route::namespace('backend')->prefix('cms')->middleware('auth')->group(function(){
+Route::namespace('backend')->prefix('admin')->group(function(){
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
-    //Route::resource('/product', 'ProductController');
+    Route::resource('products', 'ProductController');
+    Route::post('products/{id}/PhotoUpload', 'ProductController@uploadPhoto')->name('products.photo');
+    Route::resource('categories', 'CategoryController');
 });

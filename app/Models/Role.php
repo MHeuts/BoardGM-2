@@ -11,4 +11,9 @@ class Role extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function role(){
+        return $this->belongsToMany('App\Models\Role', 'product_category');
+    }
 }
+
