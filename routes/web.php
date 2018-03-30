@@ -26,7 +26,7 @@ Route::namespace('cart')->middleware('auth')->group(function () {
 	Route::get('/cart', 'CartController@index')->name('cart');
 	Route::get('/addToCart/{id}', 'CartController@addToCart')->name('addToCart');
 	Route::get('/checkout', 'CartController@checkout')->name('checkout');
-	Route::get('/updateQty/{qty}', 'CartController@updateQty')->name('updateQty');
+	Route::post('/updateQty/{id}', 'CartController@updateQty')->name('updateQty');
 	Route::get('/removeFromCart/{id}', 'CartController@removeFromCart')->name('removeFromCart');
 });
 

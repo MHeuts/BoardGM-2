@@ -23,22 +23,45 @@ class CartController extends Controller
 	public function removeFromCart($id) {
 		foreach(Session::get('cart.items') as $index=>$item) {
 			if ($id == $item['id']) {
-				$currentTotalQty = Session::get('cart.totalQty');
-				Session::put('cart.totalQty', $currentTotalQty -= $item['qty']);
-				$currentTotalPrice = Session::get('cart.totalPrice');
-				Session::put('cart.totalPrice', $currentTotalPrice -= ($item['price'] * $item['qty']));
-				
 				Session::forget('cart.items.'.$index);
+				$this->calcTotalQtyTotalPrice();
 				
-				break;
+				return redirect('/cart');
 			}
 		}
-		
-		return redirect('/cart');
 	}
 	
-	public function updateQty($qty) {
-		dd($qty);
+	public function updateQty(Request $request, $id) {
+		$request->validate([
+			'qty' => 'required|min:1',
+		]);
+		
+		$product = [];
+		$qty = $request->input('qty');
+		
+		foreach(Session::get('cart.items') as $index=>&$item) {
+			$product = $item;
+			if ($id == $product['id']) {
+				$product['qty'] = $qty ;
+				Session::put('cart.items.'.$index, $product);
+				$this->calcTotalQtyTotalPrice();
+				
+				return redirect('/cart');
+			}
+		}
+	}
+	
+	function calcTotalQtyTotalPrice(){
+		$newTotalQty = 0;
+		$newTotalPrice = 0;
+		
+		foreach(Session::get('cart.items') as $index=>$item) {
+			$newTotalQty += $item['qty'];
+			$newTotalPrice += $item['qty'] * $item['price'];
+		}
+		
+		Session::put('cart.totalQty', $newTotalQty);
+		Session::put('cart.totalPrice', $newTotalPrice);
 	}
 	
 	public function addToCart($id)
@@ -52,10 +75,7 @@ class CartController extends Controller
 					++$product['qty'];
 					Session::put('cart.items.'.$index, $product);
 					
-					$currentTotalQty = Session::get('cart.totalQty');
-					Session::put('cart.totalQty', ++$currentTotalQty);
-					$currentTotalPrice = Session::get('cart.totalPrice');
-					Session::put('cart.totalPrice', $currentTotalPrice += $product['price']);
+					$this->calcTotalQtyTotalPrice();
 					
 					return redirect('/cart');
 				}
@@ -71,12 +91,7 @@ class CartController extends Controller
 		
 		Session::push('cart.items', $product);
 		
-		
-		
-		$currentTotalQty = Session::get('cart.totalQty');
-		Session::put('cart.totalQty', ++$currentTotalQty);
-		$currentTotalPrice = Session::get('cart.totalPrice');
-		Session::put('cart.totalPrice', $currentTotalPrice += $product['price']);
+		$this->calcTotalQtyTotalPrice();
 		
 		return redirect('/cart');
 	}

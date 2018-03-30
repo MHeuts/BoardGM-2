@@ -22,9 +22,14 @@
 					<td>{{ $item['name'] }}</td>
 					<td>{{ $item['description'] }}</td>
 					<td>€{{ $item['price'] * $item['qty'] }}</td>
-					<td><input type="number" min="1" name="qty-{{ $item['id'] }}" id="qty-{{ $item['id'] }}" value="{{ $item['qty'] }}"/></td>
 					<td>
-						<a href="{{ route('updateQty', $item['qty']) }}" class="btn btn-primary"><i class="fa fa-pencil"></i> Update quantity</a>
+						<form id="qtyForm" method="POST" action="{{ route('updateQty', $item['id']) }}">
+							{{ csrf_field() }}
+							<input type="number" id="qty" name="qty" min="1" value="{{ $item['qty'] }}"/>
+						</form>
+					</td>
+					<td>
+						<button class="btn btn-primary" type="submit" form="qtyForm"><i class="fa fa-pencil"></i> Update quantity</button>
 						<a href="{{ route('removeFromCart', $item['id']) }}" class="btn btn-danger"><i class="fa fa-trash"></i> Remove from cart</a>
 					</td>
 				</tr>
