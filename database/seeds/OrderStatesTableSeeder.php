@@ -16,8 +16,8 @@ class OrderStatesTableSeeder extends Seeder
 		DB::table('order_state')->truncate();
 		DB::statement('SET FOREIGN_KEY_CHECKS=1');
 		
-		OrderState::create(['name' => 'ordered']);
-		OrderState::create(['name' => 'in_transit']);
-		OrderState::create(['name' => 'delivered']);
+		OrderState::create(['name' => 'Ordered']);
+		OrderState::create(['name' => 'In transit']);
+		OrderState::create(['name' => 'Delivered']);
     }
 }
