@@ -12,6 +12,11 @@
                 <div class="col-sm-6">
                     <h2>€ {{$product->price}}</h2>
                     <p>{{$product->description}}</p>
+                    <table class="table table-striped">
+                        @foreach($product->category as $category)
+                            <tr><td>{{$category->name}}</td></tr>
+                        @endforeach
+                    </table>
 					<a href="{{ route('addToCart', $product->id) }}" class="btn btn-primary"><i class="fa fa-cart-plus fa-2x"></i> Add to cart</a>
                 </div>
             </div>
