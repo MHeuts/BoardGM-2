@@ -24,12 +24,7 @@ class Order extends Model
         return $this->hasOne('App\Models\OrderState', 'id', 'order_state_id');
     }
 
-    public function totalPrice(){
-        $total_price = 0;
-        foreach ($this->products()->get() as $product){
-            $total_price += $product->price;
-        }
-        return $total_price;
+    public function orderDetails(){
+        return $this->hasMany('App\Models\OrderDetails');
     }
-
 }

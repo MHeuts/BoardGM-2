@@ -9,7 +9,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Customer name</th>
-                    <th>Total Products</th>
+                    <th>Total Products Types</th>
                     <th>Order State</th>
                     <th>Actions</th>
                     <th></th>

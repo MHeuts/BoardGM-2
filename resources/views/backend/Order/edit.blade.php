@@ -33,15 +33,17 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
+                        <th>quantity</th>
                         <th>Price</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($order->products as $product)
+                    @foreach($order->orderDetails as $orderDetail)
                         <tr>
-                            <td>{{$product->id}}</td>
-                            <td>{{$product->name}}</td>
-                            <td>€ {{$product->price}}</td>
+                            <td>{{$orderDetail->product->id}}</td>
+                            <td>{{$orderDetail->product->name}}</td>
+                            <td>{{$orderDetail->qty}}</td>
+                            <td>€ {{ number_format($orderDetail->product->price * $orderDetail->qty, 2) }}</td>
                         </tr>
                     @endforeach
                     </tbody>
