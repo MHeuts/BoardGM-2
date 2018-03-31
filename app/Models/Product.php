@@ -2,10 +2,18 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+	use Searchable;
+	
+	public function searchableAs()
+    {
+        return 'product';
+    }
+	
     protected $table = 'product';
 	
     protected $fillable = [
