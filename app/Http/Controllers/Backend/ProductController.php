@@ -88,12 +88,15 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $product->category()->detach();
-
         foreach ($request->all(['category']) as $categoryid){
+            if($categoryid == null){
+                return redirect()->back();
+            }
             $category = Category::findOrFail($categoryid);
             $product->category()->attach($category);
         }
         $product->update($request->all());
+
         return redirect(route('products.index'));
     }
 

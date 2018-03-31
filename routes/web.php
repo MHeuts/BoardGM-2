@@ -40,6 +40,5 @@ Route::namespace('backend')->prefix('cms')->middleware('isAdmin')->group(functio
     Route::post('products/{id}/PhotoUpload', 'ProductController@uploadPhoto')->name('products.photo');
 	Route::resource('products', 'ProductController');
     Route::resource('categories', 'CategoryController');
-	Route::get('/products', 'ProductController@index')->name('CMSproducts');
-	Route::get('/categories', 'CategoryController@index')->name('CMScategories');
+    Route::resource('orders', 'OrderController');
 });

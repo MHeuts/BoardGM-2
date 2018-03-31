@@ -11,4 +11,25 @@ class Order extends Model
     protected $fillable = [
         'user_id', 'order_state_id',
     ];
+
+    public function products(){
+        return $this->belongsToMany('App\Models\Product', 'order_details');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User');
+    }
+
+    public function state(){
+        return $this->hasOne('App\Models\OrderState', 'id', 'order_state_id');
+    }
+
+    public function totalPrice(){
+        $total_price = 0;
+        foreach ($this->products()->get() as $product){
+            $total_price += $product->price;
+        }
+        return $total_price;
+    }
+
 }
