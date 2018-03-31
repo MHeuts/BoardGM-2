@@ -11,4 +11,8 @@ class OrderDetails extends Model
     protected $fillable = [
         'order_id', 'product_id',
     ];
+
+    public function product(){
+        return $this->hasOne('App\Models\product', 'id', 'product_id');
+    }
 }

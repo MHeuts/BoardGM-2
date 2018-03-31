@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <a href="{{ route('CMSproducts') }}" class="btn btn-primary"><i class="fa fa-arrow-left fa-lg"></i> Back to index</a>
+    <a href="{{ route('products.index') }}" class="btn btn-primary"><i class="fa fa-arrow-left fa-lg"></i> Back to index</a>
     <form method="POST" action="{{ route('products.store') }}">
         {{ csrf_field() }}
         <div class="form-group">

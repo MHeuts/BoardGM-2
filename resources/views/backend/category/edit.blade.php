@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <a href="{{ route('CMScategories') }}" class="btn btn-primary mb-4"><i class="fa fa-arrow-left fa-lg"></i> Back to index</a>
+        <a href="{{ route('categories.index') }}" class="btn btn-primary mb-4"><i class="fa fa-arrow-left fa-lg"></i> Back to index</a>
         <h1>Edit: </h1>
         <form method="POST" action="{{ route('categories.update', $category->id) }}">
             {{ csrf_field() }}
