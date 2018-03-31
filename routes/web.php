@@ -36,7 +36,7 @@ Route::namespace('order')->middleware('auth')->group(function () {
 });
 
 Route::namespace('backend')->prefix('cms')->middleware('isAdmin')->group(function(){
-    Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
+	Route::get('/', 'HomeController@index')->name('cms');
     Route::post('products/{id}/PhotoUpload', 'ProductController@uploadPhoto')->name('products.photo');
 	Route::resource('products', 'ProductController');
     Route::resource('categories', 'CategoryController');
