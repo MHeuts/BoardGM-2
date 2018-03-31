@@ -37,9 +37,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        <form class="navbar-form navbar-left" action="/action_page.php">
+                        <form class="navbar-form navbar-left" action="{{ route('search') }}">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" style="width: 500px">
+                                <input type="text" class="form-control" name="q" placeholder="Search" style="width: 500px">
                                 <div class="input-group-btn">
                                     <button class="btn btn-default" type="submit">
                                         <i class="fa fa-search"></i>

@@ -42,3 +42,7 @@ Route::namespace('backend')->prefix('cms')->middleware('isAdmin')->group(functio
     Route::resource('categories', 'CategoryController');
     Route::resource('orders', 'OrderController');
 });
+
+Route::namespace('search')->group(function(){
+    Route::get('/search', 'SearchController@search')->name('search');
+});
