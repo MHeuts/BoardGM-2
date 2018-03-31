@@ -6,5 +6,6 @@
 		<a href="{{ route('products.index') }}" class="btn btn-primary">Products</a>
 		<a href="{{ route('categories.index') }}" class="btn btn-primary">Categories</a>
 		<a href="{{ route('orders.index') }}" class="btn btn-primary">Orders</a>
+		<a href="{{ route('users.index') }}" class="btn btn-primary">users</a>
 	</div>
 @endsection

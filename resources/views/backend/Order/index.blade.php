@@ -2,6 +2,7 @@
 @section('content')
 
     <div class="container">
+        <a href="{{ route('home.index') }}" class="btn btn-primary mb-4"><i class="fa fa-arrow-left fa-lg"></i> Back to cms</a>
         <h1>Orders</h1>
         <div class="table-responsive">
             <table class="table table-striped">
