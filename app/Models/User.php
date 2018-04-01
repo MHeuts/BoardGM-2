@@ -26,10 +26,14 @@ class User extends Authenticatable
     public function roles(){
         return $this->belongsToMany('App\Models\Role', 'user_role');
     }
-	
-	public function isAdmin(){
-		$isAdmin = UserRole::where('user_id', '=', Auth::user()->id)->where('role_id', '=', 2)->first();
-		
-		 return $isAdmin;
-	}
+  
+    public function orders(){
+        return $this->hasMany('App\Models\Order');
+    }
+  
+	  public function isAdmin(){
+      $isAdmin = UserRole::where('user_id', '=', Auth::user()->id)->where('role_id', '=', 2)->first();
+
+       return $isAdmin;
+    }
 }
