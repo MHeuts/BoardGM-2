@@ -78,3 +78,7 @@ body{
 .bootstrap-select.btn-group .dropdown-toggle .filter-option {
     display: inline !important;
 }
+
+.user_orders{
+    margin-top: 50px;
+}

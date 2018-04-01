@@ -9,7 +9,13 @@
 namespace App\Http\Controllers\Frontend;
 
 
+use Illuminate\Support\Facades\Auth;
+
 class UserController
 {
-
+    public function details()
+    {
+        $user = Auth::user();
+        return view('frontend.user.detail', compact('user'));
+    }
 }
