@@ -15,7 +15,7 @@ class CreateMenuitemTable extends Migration
     {
         Schema::create('menuitem', function (Blueprint $table) {
             $table->increments('id');
-			$table->unsignedInteger('parent_id');
+			$table->unsignedInteger('parent_id')->nullable();
             $table->string('name');
 			$table->string('url');
             $table->timestamps();

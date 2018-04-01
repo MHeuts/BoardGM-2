@@ -28,8 +28,29 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">BOARDGM
-                </a>
+                <a class="navbar-brand" href="{{ url('/') }}">BOARDGM</a>
+				
+				<ul class="navbar-nav">
+					@foreach($items as $item)
+						@if(count($item['children']) > 0)
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="{{ $item->url }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								  {{ $item->name }}
+								</a>
+								<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+									@foreach($item['children'] as $child)
+										<a class="dropdown-item" href="{{ $child->url }}">{{ $child->name }}</a>
+									@endforeach
+								</div>
+							</li>
+						@else
+							<li class="nav-item">
+								<a class="nav-link" href="{{ $item->url }}">{{ $item->name }}</a>
+							</li>
+						@endif
+					@endforeach
+				</ul>
+				
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -72,9 +93,11 @@
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									@if( Auth::user()->isAdmin() )
 									<a class="dropdown-item" href="{{ route('cms') }}">
                                        CMS
                                     </a>
+									@endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -92,7 +115,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4">	
             @yield('content')
         </main>
     </div>
