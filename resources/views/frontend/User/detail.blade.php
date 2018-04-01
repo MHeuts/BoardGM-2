@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <a href="{{ route('home.index') }}" class="btn btn-primary mb-4"><i class="fa fa-arrow-left fa-lg"></i>Exit</a>
+        <a href="{{ route('home.index') }}" class="btn btn-primary mb-4"><i class="fa fa-arrow-left fa-lg"></i> Exit</a>
         <div>
             <h1>{{$user->name}}</h1>
             <label class="control-label col-sm-2" for="email">Email:</label>
@@ -23,7 +23,6 @@
         <h1>Orders</h1>
 
         @foreach($user->orders as $order)
-            <h2>{{$order->id}}</h2>
             <p>{{$order->state->name}}</p>
             <div class="table-responsive">
                 <table class="table table-striped">
