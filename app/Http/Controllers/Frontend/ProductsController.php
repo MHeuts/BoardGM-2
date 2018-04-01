@@ -5,13 +5,15 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Category;
 
 class ProductsController extends Controller
 {
     public function index()
     {
 		$products = Product::all();
-        return view('frontend.products.index', compact('products'));
+		$categories = Category::tree();
+        return view('frontend.products.index', compact('products', 'categories'));
     }
 	
     public function displayProduct($id){

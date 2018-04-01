@@ -23,4 +23,13 @@ class Product extends Model
     public function category(){
         return $this->belongsToMany('App\Models\Category', 'product_category');
     }
+	
+	public function toSearchableArray()
+	{
+		$array = $this->toArray();
+
+		$array['categories'] = $this->category->map(function ($data) { return $data['name']; })->toArray();
+
+		return $array;
+	}
 }
