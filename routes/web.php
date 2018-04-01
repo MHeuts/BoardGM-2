@@ -20,7 +20,9 @@ Route::namespace('frontend')->group(function () {
     Route::get('/producttest', ['as' => 'product.index', 'uses' => 'ProductTestController@index']);
 	Route::get('/products', 'ProductsController@index')->name('catalog');
     Route::get('/products/{id}', 'ProductsController@displayProduct')->name('displayProduct');
-    Route::get('/user', 'UserController@details')->name('userDetails');
+    Route::get('/user', 'UserController@detail')->name('userDetails')->middleware('auth');
+    Route::get('/user/edit', 'UserController@edit')->name('userEdit')->middleware('auth');
+    Route::post('/user', 'UserController@update')->name('userSave')->middleware('auth');
 });
 
 Route::namespace('cart')->middleware('auth')->group(function () {

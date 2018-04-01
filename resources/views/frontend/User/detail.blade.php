@@ -16,10 +16,9 @@
             </div>
 
         </div>
-        <!--
-        <button type="submit" class="btn btn-primary" form="userForm">Edit</button>
-        <button type="submit" class="btn btn-danger" form="userForm">Change Password</button>
-        -->
+
+        <a href="{{route('userEdit')}}" class="btn btn-primary" form="userForm">Edit</a>
+
         <div class="user_orders">
         <h1>Orders</h1>
 
