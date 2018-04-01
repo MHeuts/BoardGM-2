@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
 			OrderStatesTableSeeder::class,
 			OrdersTableSeeder::class,
 			OrderDetailsTableSeeder::class,
+			MenuItemTableSeeder::class,
 		]);
     }
 }

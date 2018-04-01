@@ -19,6 +19,7 @@ Route::namespace('frontend')->group(function () {
     Route::get('/', ['as' => 'home.index', 'uses' => 'HomeController@index']);
     Route::get('/producttest', ['as' => 'product.index', 'uses' => 'ProductTestController@index']);
 	Route::get('/products', 'ProductsController@index')->name('catalog');
+	Route::get('/about', 'AboutController@index')->name('about');
     Route::get('/products/{id}', 'ProductsController@displayProduct')->name('displayProduct');
     Route::get('/user', 'UserController@detail')->name('userDetails')->middleware('auth');
     Route::get('/user/edit', 'UserController@edit')->name('userEdit')->middleware('auth');

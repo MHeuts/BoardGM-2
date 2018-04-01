@@ -99,7 +99,7 @@
                                     </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('userDetails') }}">
-                                        {{ Auth::user()->name }}
+                                        Edit profile
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
