@@ -28,6 +28,14 @@ body{
     border-top: 6px solid black;
 }
 
+[data-toggle="collapse"] .fa:before {   
+  content: "\f077";
+}
+
+[data-toggle="collapse"].collapsed .fa:before {
+  content: "\f078";
+}
+
 .search-product-img {
 	height: 8rem;
 }
