@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-    <a href="{{ route('home.index') }}" class="btn btn-primary mb-4"><i class="fa fa-arrow-left fa-lg"></i> Back to cms</a>
+    <a href="{{ route('cms') }}" class="btn btn-primary mb-4"><i class="fa fa-arrow-left fa-lg"></i> Back to cms</a>
     <h1>Products</h1>
     <a class="btn btn-primary pull-right" href="{{ route('products.create') }}">
         Add new product

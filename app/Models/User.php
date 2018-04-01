@@ -5,6 +5,9 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Auth;
+use App\Models\UserRole;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -23,8 +26,14 @@ class User extends Authenticatable
     public function roles(){
         return $this->belongsToMany('App\Models\Role', 'user_role');
     }
-
+  
     public function orders(){
         return $this->hasMany('App\Models\Order');
+    }
+  
+	  public function isAdmin(){
+      $isAdmin = UserRole::where('user_id', '=', Auth::user()->id)->where('role_id', '=', 2)->first();
+
+       return $isAdmin;
     }
 }
