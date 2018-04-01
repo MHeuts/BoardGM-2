@@ -22,31 +22,5 @@
             </div>
 
         </div>
-        <div class="product_reviews">
-            <div class="Review_container">
-                <div class="review_header">
-                    <div class="row">
-                        <div class="col-sm-10">
-                            <h3>Review Title</h3>
-                            <p>review Naam</p>
-                        </div>
-                        <div class="col-sm-2">
-                            <h3>
-								<i class="fa fa-star text-warning"></i>
-								<i class="fa fa-star text-warning"></i>
-								<i class="fa fa-star text-warning"></i>
-								<i class="fa fa-star-half-o text-warning"></i>
-								<i class="fa fa-star-o text-warning"></i>
-							</h3>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="review_body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                </div>
-        </div>
     </div>
 @endsection
