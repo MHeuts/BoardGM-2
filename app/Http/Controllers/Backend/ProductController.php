@@ -120,6 +120,6 @@ class ProductController extends Controller
         if ($file != null) {
             $path = Storage::disk('public_uploads')->putFileAs($path, $file, '1.jpg');
         }
-        return redirect(route('products.index'));
+        return redirect()->back();
     }
 }
