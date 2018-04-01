@@ -5,38 +5,44 @@
 	
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-2">
-				<div class="card">
-					<h5 class="card-header">Categories</h5>
-					<div class="card-body">
-						<ul>
-						@foreach ($categories as $category)
-							@if(count($category['children']) > 0)
-								<li>
-									<a href="/search?q={{ $category->name }}">{{ $category->name }}</a>
-								</li>
+			<div class="col-lg-3 mb-4">
+				<div id="accordion">
+					<div class="card">
+						<h5 class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							Categories <i class="fa pull-right" aria-hidden="true"></i> 
+						</h5>
+						<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+							<div class="card-body">
 								<ul>
-								@foreach($category['children'] as $child)
-									<li>
-										<a href="/search?q={{ $child->name }}">{{ $child->name }}</a>
-									</li>
+								@foreach ($categories as $category)
+									@if(count($category['children']) > 0)
+										<li>
+											<a href="/search?q={{ $category->name }}">{{ $category->name }}</a>
+										</li>
+										<ul>
+										@foreach($category['children'] as $child)
+											<li>
+												<a href="/search?q={{ $child->name }}">{{ $child->name }}</a>
+											</li>
+										@endforeach
+										</ul>
+									@else
+										<li>
+											<a href="/search?q={{ $category->name }}">{{ $category->name }}</a>
+										</li>
+									@endif
 								@endforeach
 								</ul>
-							@else
-								<li>
-									<a href="/search?q={{ $category->name }}">{{ $category->name }}</a>
-								</li>
-							@endif
-						@endforeach
-						</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-10">
+			<div class="col-lg-9">
 				<div class="container-fluid">
 					<div class="row">
 						@foreach ($products as $product)
-						<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+						<div class="col-lg-3 col-md-4 col-sm-12 mb-4">
 							<a href="{{ route('displayProduct', $product->id) }}">
 							<div class="card">
 								<h5 class="card-header">{{ $product->name }}</h5>
